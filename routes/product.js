@@ -61,22 +61,22 @@ router.post('/search', async (req, res) => {
 });
 
 router.get('/sortprice/asc', async (req, res) => {
-    let productList = await ProductModel.find().sort({ price: 1 });
+    let productList = await ProductModel.find().sort({ price: 1 }).populate("category", ["name"]);
     res.render('admin/index', { productList });
 });
 
 router.get('/sortprice/desc', async (req, res) => {
-    let productList = await ProductModel.find().sort({ price: -1 });
+    let productList = await ProductModel.find().sort({ price: -1 }).populate("category", ["name"]);
     res.render('admin/index', { productList });
 });
 
 router.get('/boy', async (req, res) => {
-    let productList = await ProductModel.find({ gender: "Boy" });
+    let productList = await ProductModel.find({ gender: "Boy" }).populate("category", ["name"]);
     res.render('admin/index', { productList });
 });
 
 router.get('/girl', async (req, res) => {
-    let productList = await ProductModel.find({ gender: "Girl" });
+    let productList = await ProductModel.find({ gender: "Girl" }).populate("category", ["name"]);
     res.render('admin/index', { productList });
 });
 router.get('/list', async (req, res) => {
