@@ -1,0 +1,15 @@
+<table class="table table-info">
+   <tr>
+      <th>Name of product</th>
+      <th>Image</th>
+      <th>Price</th>
+    
+   </tr>
+   {{#each productList }}
+   <tr>
+      <td> {{ name }}</td>
+      <td><img src={{ imageUrl }} alt="" width="200" height="150"></td>
+      <td>{{ price }}</td>
+   </tr>
+   {{/each}}
+</table>

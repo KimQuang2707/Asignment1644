@@ -1,0 +1,61 @@
+<center>
+   <a class="btn btn-primary mb-3" href="/product/add">Add new product</a>
+</center>
+
+<div class="row mt-3 mb-3">
+   <div class="col-md-4">
+      <form action="/product/search" method="post">
+         <input class="form-control" type="search" name="keyword" id="" required placeholder="Search by name">
+      </form>
+   </div>
+    <div class="col-md-4">
+      <a class="btn btn-info" href="/product/sortprice/asc">
+         Price Ascending
+      </a>
+      <a class="btn btn-warning" href="/product/sortprice/desc">
+         Price Descending
+      </a>
+   </div>
+
+      <div class="col-md-4">
+      <a class="btn btn-danger" href="/product/boy">
+         Boy
+      </a>
+      <a class="btn btn-primary" href="/product/girl">
+         Girl
+      </a>
+   </div>
+
+
+</div>
+<table class="table table-info">
+   <tr>
+      <th>Name of product</th>
+      <th>Image</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Gender</th>
+      <th>Category</th>
+      <th>Date Added</th>
+      <th>Option</th>
+   </tr>
+   {{#each productList }}
+   <tr>
+      <td> {{ name }}</td>
+      <td><img src={{ imageUrl }} alt="" width="200" height="150"></td>
+      <td>{{ description }}</td>
+      <td>{{ price }}</td>
+      <td>{{ gender }}</td>
+      <td>{{ category.name }}</td>
+      <td>{{ dateAdded }}</td>
+      <td>
+         <a class="btn btn-warning" href="/product/edit/{{ _id }}">Edit</a>
+         <a class="btn btn-danger" href="/product/delete/{{ _id }}"
+            onclick="return confirm('Are you sure to delete this student ?');">Delete</a>
+      </td>
+   </tr>
+   {{/each}}
+
+
+
+</table>
